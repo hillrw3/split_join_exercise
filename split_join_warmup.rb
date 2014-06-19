@@ -10,31 +10,54 @@ world_cup_news
 
 # enter your solutions inside the methods
 def goal(message)
-
+  message * 2
 end
 
 def generate_an_array_of_teams(teams)
-
+  teams.split(', ')
 end
 
 def number_of_teams(teams)
-
+  teams.split.length
 end
 
 def return_australia(teams)
-
+  split_teams = teams.split(', ')
+  aus = split_teams.select{|x| x == "Australia"}
+  aus.join
 end
 
 def starts_with_C(teams)
-
+  split_teams = teams.split(', ')
+  c_teams = split_teams.select{|x| x.include?("C")}
+  c_teams
 end
 
 def block_string_to_single_line(block_string)
-
+  one_line = block_string.gsub(/\n/ , '')
+  one_line_no_comma = one_line.gsub(',', '')
+  correct_spacing = one_line_no_comma.gsub('  ', ' ')
+  one_more = correct_spacing.sub(' ', '')
+  one_more
 end
 
 def capitalize_every_third_word(block_string)
-
+  one_line = block_string.gsub!(/\n/, '')
+  one_line_no_comma = one_line.gsub!(',', '')
+  correct_spacing = one_line_no_comma.gsub!('  ', ' ')
+  one_more = correct_spacing.sub!(' ', '')
+  downcase = one_more.downcase.capitalize
+  split = downcase.split
+  cap = []
+  split.each_with_index do |w, i |
+    if i % 3 == 0
+      cap.push(w.capitalize)
+    else
+      cap.push(w)
+    end
+  one_line = cap.join(' ')
+    p one_line
+  end
 end
 
 check("goal method", goal(goal_message) == "GOOOOOOOAL!!!!GOOOOOOOAL!!!!")
