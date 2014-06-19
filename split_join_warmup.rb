@@ -55,9 +55,9 @@ def capitalize_every_third_word(block_string)
     else
       cap.push(w)
     end
-  one_line = cap.join(' ')
-    p one_line
+  one_line = cap.join(" ")
   end
+  one_line
 end
 
 check("goal method", goal(goal_message) == "GOOOOOOOAL!!!!GOOOOOOOAL!!!!")
